@@ -18,14 +18,6 @@
 		{
 			"src": "^\\/api\\/contact\\/?$",
 			"dest": "_render"
-		},
-		{
-			"src": "^\\/politica-de-privacidade\\/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^\\/$",
-			"dest": "_render"
 		}
 	]
 }

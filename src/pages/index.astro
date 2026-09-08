@@ -10,6 +10,8 @@ import Business from '@components/Business.astro';
 import Videos from '@components/Videos.astro';
 import ContactForm from '@components/ContactForm.astro';
 import { site } from '@data/site';
+
+export const prerender = true;
 ---
 
 <script is:inline define:vars={{ waNumero: site.whatsapp.numero }}>
