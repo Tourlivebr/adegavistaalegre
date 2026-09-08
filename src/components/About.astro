@@ -1,0 +1,81 @@
+---
+import { categoriasProdutos } from '@data/products';
+
+const sobreImagem = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Elegant%20wine%20tasting%20room%20with%20wooden%20table%20wine%20glasses%20bottles%20natural%20light%20minimalist%20gastronomy%20interior&image_size=landscape_4_3';
+---
+
+<section id="sobre" class="section bg-white">
+  <div class="container">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="relative">
+          <div class="absolute -top-4 -left-4 w-24 h-24 rounded-2xl bg-wine-700/10 -z-10"></div>
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-3xl bg-cream-200 -z-10"></div>
+          <div class="relative rounded-2xl overflow-hidden shadow-card border border-cream-200 aspect-[4/5]">
+            <img
+              src={sobreImagem}
+              alt="Ambiente elegante da Adega Vista Alegre com produtos selecionados"
+              loading="lazy"
+              decoding="async"
+              class="img-cover"
+              width="800"
+              height="1000"
+            />
+          </div>
+          <div class="absolute -bottom-4 -right-4 sm:right-0 bg-white shadow-hover border border-cream-200 rounded-xl px-5 py-4 max-w-[220px]">
+            <p class="font-display text-3xl text-wine-700 font-semibold leading-none">
+              +5
+            </p>
+            <p class="mt-1 text-sm text-ink-700 font-medium">
+              Categorias de produtos selecionados
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 order-1 lg:order-2">
+        <span class="section-eyebrow">Sobre nós</span>
+        <h2 class="section-title text-balance">Conheça a Vista Alegre</h2>
+        <p class="mt-6 text-ink-600 text-base md:text-lg leading-relaxed max-w-2xl text-pretty">
+          A Adega Vista Alegre trabalha com produtos selecionados para clientes, empresas e parceiros comerciais, oferecendo atendimento personalizado e oportunidades de parceria com condições comerciais justas e duradouras.
+        </p>
+        <p class="mt-4 text-ink-500 leading-relaxed max-w-2xl">
+          Nossa curadoria é pensada para quem busca qualidade, sabor e confiança. Do vinho ao detalhe da apresentação, cuidamos de cada etapa para que a experiência seja sempre especial.
+        </p>
+
+        <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+          {categoriasProdutos.map((cat) => (
+            <div
+              key={cat.slug}
+              class="group relative bg-white rounded-xl p-4 sm:p-5 border border-cream-200 hover:border-wine-700/30 hover:shadow-soft transition-all duration-300 text-center"
+            >
+              <div
+                class="mx-auto w-12 h-12 rounded-xl bg-wine-50 border border-wine-700/10 flex items-center justify-center mb-3 group-hover:bg-wine-700 group-hover:text-white transition-colors"
+                aria-hidden="true"
+              >
+                {cat.slug === 'vinhos' && (
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l-1 6a4 4 0 01-6 0L8 2z"/><path d="M12 12v10"/><path d="M8 22h8"/></svg>
+                )}
+                {cat.slug === 'bebidas' && (
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8v4l-2 3v11a2 2 0 01-2 2h-0a2 2 0 01-2-2V9L8 6V2z"/><path d="M8 6h8"/></svg>
+                )}
+                {cat.slug === 'laticinios' && (
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z"/><ellipse cx="12" cy="9" rx="7" ry="3"/></svg>
+                )}
+                {cat.slug === 'embutidos' && (
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10c2 0 2-4 5-4s3 8 7 8 3-6 6-6"/><path d="M4 16c2 0 2-4 5-4s3 8 7 8 3-6 6-6"/></svg>
+                )}
+                {cat.slug === 'cosmeticos' && (
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4v3h-4z"/><rect x="8" y="5" width="8" height="17" rx="2"/><path d="M8 11h8"/></svg>
+                )}
+              </div>
+              <h3 class="font-display text-sm md:text-base font-semibold text-ink-900">
+                {cat.nome}
+              </h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+---
+import { site, getWhatsAppLink } from '@data/site';
+
+const fotoPlaceholder = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Elegant%20professional%20business%20portrait%20placeholder%2C%20neutral%20background%20with%20soft%20warm%20light%20gray%20gradient%2C%20minimalist&image_size=square_hd';
+---
+
+<section id="representante" class="section bg-cream-100/60 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-72 h-72 bg-wine-700/5 rounded-full blur-3xl -translate-y-24 translate-x-24"></div>
+
+  <div class="container relative">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div class="lg:col-span-7 order-2 lg:order-1">
+        <span class="section-eyebrow">Representação comercial</span>
+        <h2 class="section-title text-balance max-w-xl">
+          Representação Comercial {site.nome}
+        </h2>
+        <p class="mt-6 text-ink-700 text-lg leading-relaxed italic text-wine-800 border-l-2 border-wine-700/40 pl-5">
+          &ldquo;{site.representante.apresentacao}&rdquo;
+        </p>
+
+        <div class="mt-10 space-y-6 max-w-xl">
+          <div>
+            <p class="text-xs uppercase tracking-wider text-ink-500 font-semibold mb-1">Nome</p>
+            <p class="font-display text-xl md:text-2xl text-ink-900 font-semibold">
+              {site.representante.nome}
+            </p>
+            <p class="text-xs text-ink-400 mt-1 italic">{site.representante.nomePlaceholder}</p>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-wider text-ink-500 font-semibold mb-1">Região de atendimento</p>
+            <p class="text-ink-800">{site.representante.regiao}</p>
+            <p class="text-xs text-ink-400 mt-1 italic">{site.representante.regiaoPlaceholder}</p>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          {site.representante.whatsapp || true ? (
+            <a
+              href={site.representante.whatsapp ? `https://wa.me/${site.representante.whatsapp}` : getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              </svg>
+              WhatsApp
+            </a>
+          ) : null}
+          <a
+            href={site.representante.instagram || site.redes.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.849.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.849.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm5.202-9.802a1.44 1.44 0 112.88 0 1.44 1.44 0 01-2.88 0z"/>
+            </svg>
+            Instagram
+          </a>
+          <a
+            href={site.representante.email ? `mailto:${site.representante.email}` : `mailto:${site.email.contato}`}
+            class="btn-outline"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Enviar e-mail
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 order-1 lg:order-2">
+        <div class="relative max-w-sm lg:max-w-none mx-auto">
+          <div class="absolute -inset-3 bg-gradient-to-br from-wine-700/20 via-transparent to-cream-200 rounded-[2rem]"></div>
+          <div class="relative rounded-[1.5rem] overflow-hidden shadow-card border border-white aspect-[4/5] bg-white">
+            <img
+              src={site.representante.foto || fotoPlaceholder}
+              alt={site.representante.foto ? `Foto de ${site.representante.nome}` : 'Espaço reservado para foto profissional da representante comercial'}
+              loading="lazy"
+              decoding="async"
+              class="img-cover"
+              width="600"
+              height="750"
+            />
+            {!site.representante.foto && (
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                <p class="text-white text-sm font-medium">Foto profissional</p>
+                <p class="text-white/70 text-xs mt-0.5">Adicione uma imagem em src/data/site.ts</p>
+              </div>
+            )}
+          </div>
+          <div class="absolute -top-4 -right-4 bg-white rounded-xl px-4 py-3 shadow-hover border border-cream-200 flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-wine-50 border border-wine-700/10 text-wine-700 flex items-center justify-center" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+            <div>
+              <p class="text-sm font-semibold text-ink-900 leading-tight">Representante</p>
+              <p class="text-xs text-ink-500">Comercial</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+# build output
+dist/
+.output/
+.astro/
+build-output.log
+build-log.txt
+build-log2.txt
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# environment
+.env
+.env.*
+!.env.example
+
+# editor & OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

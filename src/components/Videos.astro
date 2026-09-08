@@ -1,0 +1,124 @@
+---
+import { videos, extractVideoId, type Video } from '@data/videos';
+---
+
+<section id="videos" class="section bg-white">
+  <div class="container">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
+      <div class="max-w-2xl">
+        <span class="section-eyebrow">Conteúdo</span>
+        <h2 class="section-title text-balance">Conheça nosso trabalho</h2>
+        <p class="mt-4 section-subtitle">
+          Assista aos vídeos e conheça mais sobre a Adega Vista Alegre, nossos produtos, eventos e parcerias comerciais.
+        </p>
+      </div>
+      <a
+        href="#contato"
+        class="btn-secondary self-start md:self-end"
+      >
+        Solicitar apresentação
+      </a>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {videos.map((video: Video) => {
+        const videoId = extractVideoId(video.url, video.tipo);
+        return (
+          <article
+            key={video.id}
+            class="card-elegant group flex flex-col p-0 overflow-hidden video-card"
+            data-tipo={video.tipo}
+            data-video-id={videoId}
+            data-url={video.url}
+            aria-labelledby={`v-${video.id}`}
+          >
+            <div class="relative aspect-video overflow-hidden rounded-t-2xl video-wrapper bg-ink-900">
+              <img
+                src={video.thumbnail}
+                alt={`Miniatura do vídeo: ${video.titulo}`}
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                width="1280"
+                height="720"
+              />
+              <div class="absolute inset-0 bg-ink-900/25 group-hover:bg-ink-900/45 transition-colors"></div>
+              <button
+                type="button"
+                class="video-play-btn absolute inset-0 flex items-center justify-center group/btn focus-visible:outline-none"
+                aria-label={`Reproduzir vídeo ${video.titulo}`}
+              >
+                <span class="relative flex items-center justify-center">
+                  <span class="absolute inset-0 rounded-full bg-white/30 blur-xl scale-110 group-hover/btn:scale-125 transition-transform duration-500"></span>
+                  <span class="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 text-wine-700 flex items-center justify-center shadow-[0_10px_40px_-8px_rgba(0,0,0,0.3)] group-hover/btn:bg-wine-700 group-hover/btn:text-white transition-all duration-300 group-hover/btn:scale-110">
+                    <svg class="w-7 h-7 md:w-8 md:h-8 ml-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 id={`v-${video.id}`} class="font-display text-lg md:text-xl font-semibold text-ink-900 leading-snug">
+                {video.titulo}
+              </h3>
+              <p class="mt-2 text-ink-500 text-sm leading-relaxed text-pretty flex-1">
+                {video.descricao}
+              </p>
+              <div class="mt-5 pt-5 border-t border-cream-200 flex items-center justify-between text-xs text-ink-500">
+                <span class="inline-flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  {video.tipo === 'youtube' ? 'YouTube' : video.tipo === 'vimeo' ? 'Vimeo' : 'Vídeo próprio'}
+                </span>
+                <span class="inline-flex items-center gap-1 text-wine-700 font-medium">
+                  Assistir
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    {videos.length === 0 && (
+      <div class="card-elegant text-center py-16">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-wine-50 text-wine-700 border border-wine-700/10 flex items-center justify-center mb-4" aria-hidden="true">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-ink-900">Vídeos em breve</h3>
+        <p class="mt-2 text-ink-500 max-w-md mx-auto">Novos vídeos sobre nossos produtos e parcerias serão adicionados em breve.</p>
+      </div>
+    )}
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.video-card').forEach((card) => {
+    const btn = card.querySelector('.video-play-btn');
+    const wrapper = card.querySelector('.video-wrapper');
+    const tipo = card.getAttribute('data-tipo');
+    const videoId = card.getAttribute('data-video-id');
+    const url = card.getAttribute('data-url') || '';
+    if (!btn || !wrapper) return;
+
+    btn.addEventListener('click', () => {
+      let src = '';
+      if (tipo === 'youtube' && videoId) {
+        src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+      } else if (tipo === 'vimeo' && videoId) {
+        src = `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`;
+      } else if (tipo === 'self') {
+        wrapper.innerHTML = `<video controls autoplay class="w-full h-full object-cover" src="${url}"></video>`;
+        return;
+      } else {
+        window.open(url, '_blank', 'noopener,noreferrer');
+        return;
+      }
+      wrapper.innerHTML = `<iframe src="${src}" class="w-full h-full border-0" title="Player de vídeo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+    });
+  });
+</script>

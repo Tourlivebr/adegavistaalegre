@@ -1,0 +1,89 @@
+---
+const destaques = [
+  'Divulgue produtos selecionados',
+  'Indique oportunidades comerciais',
+  'Receba por parcerias consolidadas',
+  'Acompanhe pelo atendimento dedicado'
+];
+---
+
+<section id="divulgacao" class="section bg-cream-100/60 relative overflow-hidden">
+  <div class="absolute -bottom-20 -left-16 w-80 h-80 bg-wine-700/5 rounded-full blur-3xl"></div>
+  <div class="container relative">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="order-2 lg:order-1">
+        <div class="relative">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-soft border border-white">
+                <img
+                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Business%20partnership%20handshake%20over%20elegant%20wooden%20table%20with%20wine%20glass%20and%20documents%2C%20warm%20natural%20light%2C%20professional%20photography&image_size=portrait_4_3"
+                  alt="Parceria comercial com aperto de mãos"
+                  loading="lazy" decoding="async"
+                  class="img-cover" width="500" height="700"
+                />
+              </div>
+              <div class="aspect-square rounded-2xl overflow-hidden shadow-soft border border-white">
+                <img
+                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close%20up%20of%20premium%20wine%20bottle%20label%20elegant%20packaging%20on%20cream%20background%2C%20soft%20studio%20lighting&image_size=square_hd"
+                  alt="Embalagem premium de produto da adega"
+                  loading="lazy" decoding="async"
+                  class="img-cover" width="500" height="500"
+                />
+              </div>
+            </div>
+            <div class="space-y-4 pt-10">
+              <div class="aspect-square rounded-2xl overflow-hidden shadow-soft border border-white">
+                <img
+                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Social%20media%20content%20creator%20smartphone%20recording%20premium%20products%2C%20natural%20light%20cafe%20setting%2C%20lifestyle%20photography&image_size=square_hd"
+                  alt="Divulgador gravando conteúdo de produtos premium"
+                  loading="lazy" decoding="async"
+                  class="img-cover" width="500" height="500"
+                />
+              </div>
+              <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-soft border border-white">
+                <img
+                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Gourmet%20tasting%20event%20table%20with%20wine%20cheese%20cold%20cuts%20elegant%20setting%20candles%2C%20warm%20photography&image_size=portrait_4_3"
+                  alt="Evento de degustação com produtos selecionados"
+                  loading="lazy" decoding="async"
+                  class="img-cover" width="500" height="700"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2">
+        <span class="section-eyebrow">Rede de parceiros</span>
+        <h2 class="section-title text-balance">Divulgue e seja nosso parceiro</h2>
+        <p class="mt-6 text-ink-600 text-lg leading-relaxed text-pretty max-w-xl">
+          Faça parte da rede de parceiros da Vista Alegre. Pessoas, empresas e profissionais poderão divulgar nossos produtos e gerar oportunidades comerciais.
+        </p>
+
+        <ul class="mt-8 space-y-3.5 max-w-md">
+          {destaques.map((d) => (
+            <li key={d} class="flex items-start gap-3">
+              <span class="shrink-0 mt-0.5 w-6 h-6 rounded-full bg-wine-700 text-white flex items-center justify-center" aria-hidden="true">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span class="text-ink-700">{d}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-3">
+          <a
+            href="#contato"
+            class="btn-primary"
+            data-partnership="divulgacao"
+          >
+            Quero divulgar a Vista Alegre
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#produtos" class="btn-outline">Ver produtos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

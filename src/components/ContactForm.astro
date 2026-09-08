@@ -1,0 +1,476 @@
+---
+import { site, getWhatsAppLink } from '@data/site';
+
+const parceriaOptions = [
+  {
+    value: 'compras',
+    label: 'Compras',
+    desc: 'Quero comprar produtos para minha empresa ou uso pessoal.',
+    icon: 'shopping-cart'
+  },
+  {
+    value: 'guia',
+    label: 'Guia comissionado',
+    desc: 'Sou guia de turismo e quero indicar clientes.',
+    icon: 'home'
+  },
+  {
+    value: 'divulgacao',
+    label: 'Divulgação comissionada',
+    desc: 'Quero divulgar produtos e gerar oportunidades.',
+    icon: 'mail'
+  }
+] as const;
+
+const iconeSvg = {
+  'shopping-cart': `<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>`,
+  'home': `<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>`,
+  'mail': `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>`
+};
+---
+
+<section id="contato" class="section bg-white">
+  <div class="container">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div class="lg:col-span-5 lg:sticky lg:top-28">
+        <span class="section-eyebrow">Vamos conversar</span>
+        <h2 class="section-title text-balance">Vamos fazer uma parceria?</h2>
+        <p class="mt-5 section-subtitle">
+          Preencha o formulário e nossa equipe entrará em contato com você em breve com as melhores condições comerciais.
+        </p>
+
+        <ul class="mt-10 space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="shrink-0 w-10 h-10 rounded-xl bg-wine-50 text-wine-700 border border-wine-700/10 flex items-center justify-center" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </span>
+            <div>
+              <p class="font-medium text-ink-900">WhatsApp</p>
+              <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer" class="text-ink-500 hover:text-wine-700 transition-colors text-sm">
+                {site.whatsapp.numeroFormatado}
+              </a>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="shrink-0 w-10 h-10 rounded-xl bg-wine-50 text-wine-700 border border-wine-700/10 flex items-center justify-center" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <div>
+              <p class="font-medium text-ink-900">E-mail</p>
+              <a href={`mailto:${site.email.contato}`} class="text-ink-500 hover:text-wine-700 transition-colors text-sm break-all">
+                {site.email.contato}
+              </a>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="shrink-0 w-10 h-10 rounded-xl bg-wine-50 text-wine-700 border border-wine-700/10 flex items-center justify-center" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <div>
+              <p class="font-medium text-ink-900">Atendimento</p>
+              <p class="text-ink-500 text-sm">Seg a Sex, horário comercial</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-7">
+        <form
+          id="partnership-form"
+          method="post"
+          action="/api/contact"
+          novalidate
+          class="card-elegant p-0 overflow-hidden"
+        >
+          <div class="px-6 sm:px-8 py-6 sm:py-7 bg-cream-100/70 border-b border-cream-200 flex items-center gap-3">
+            <span class="w-10 h-10 rounded-lg bg-wine-700 text-white flex items-center justify-center" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </span>
+            <div>
+              <h3 class="font-display text-lg md:text-xl font-semibold text-ink-900">Formulário de parceria</h3>
+              <p class="text-sm text-ink-500">Preencha com seus dados para prosseguirmos.</p>
+            </div>
+          </div>
+
+          <div id="form-body" class="p-6 sm:p-8 space-y-8">
+            <div id="form-alert" class="hidden rounded-lg p-4 text-sm" role="alert" aria-live="polite"></div>
+
+            <fieldset class="space-y-4">
+              <legend class="font-display text-base font-semibold text-wine-700 uppercase tracking-wider text-xs flex items-center gap-2">
+                <span class="w-6 h-px bg-wine-700/40"></span>
+                Dados pessoais
+              </legend>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="sm:col-span-2">
+                  <label for="f-nome" class="label-base">Nome completo <span class="text-wine-700">*</span></label>
+                  <input id="f-nome" name="nome" type="text" autocomplete="name" required class="input-base" placeholder="Seu nome completo" />
+                  <p class="form-error hidden mt-1.5 text-xs text-wine-700" data-for="nome"></p>
+                </div>
+                <div>
+                  <label for="f-nascimento" class="label-base">Data de nascimento</label>
+                  <input id="f-nascimento" name="nascimento" type="date" class="input-base" />
+                  <p class="form-error hidden mt-1.5 text-xs text-wine-700" data-for="nascimento"></p>
+                </div>
+                <div>
+                  <label for="f-cpf" class="label-base">CPF</label>
+                  <input id="f-cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" class="input-base" placeholder="000.000.000-00" />
+                  <p class="form-error hidden mt-1.5 text-xs text-wine-700" data-for="cpf"></p>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="f-rg" class="label-base">RG</label>
+                  <input id="f-rg" name="rg" type="text" inputmode="numeric" autocomplete="off" class="input-base" placeholder="00.000.000-0" />
+                  <p class="form-error hidden mt-1.5 text-xs text-wine-700" data-for="rg"></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="space-y-4">
+              <legend class="font-display text-base font-semibold text-wine-700 uppercase tracking-wider text-xs flex items-center gap-2">
+                <span class="w-6 h-px bg-wine-700/40"></span>
+                Dados comerciais
+              </legend>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="sm:col-span-2">
+                  <label for="f-empresa" class="label-base">Nome da empresa</label>
+                  <input id="f-empresa" name="empresa" type="text" autocomplete="organization" class="input-base" placeholder="Razão social ou nome fantasia" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="f-endereco-empresa" class="label-base">Endereço da empresa</label>
+                  <input id="f-endereco-empresa" name="enderecoEmpresa" type="text" autocomplete="street-address" class="input-base" placeholder="Rua, número, bairro, cidade/UF" />
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="space-y-4">
+              <legend class="font-display text-base font-semibold text-wine-700 uppercase tracking-wider text-xs flex items-center gap-2">
+                <span class="w-6 h-px bg-wine-700/40"></span>
+                Contato
+              </legend>
+              <div class="mb-5">
+                <p class="label-base mb-3">Tipo de parceria <span class="text-wine-700">*</span></p>
+                <div class="grid sm:grid-cols-3 gap-3" role="radiogroup" aria-labelledby="parceria-group">
+                  <span id="parceria-group" class="sr-only">Selecione o tipo de parceria</span>
+                  {parceriaOptions.map((opt) => (
+                    <label
+                      key={opt.value}
+                      class={`parceria-card group relative flex cursor-pointer rounded-xl border p-4 transition-all has-[:checked]:border-wine-700 has-[:checked]:bg-wine-50 has-[:checked]:shadow-soft hover:border-wine-700/40`}
+                    >
+                      <input
+                        type="radio"
+                        name="tipoParceria"
+                        value={opt.value}
+                        class="peer sr-only"
+                        required
+                      />
+                      <span class="flex flex-col gap-3 w-full">
+                        <span class="w-9 h-9 rounded-lg bg-white text-wine-700 border border-cream-300 flex items-center justify-center transition-colors group-has-[:checked]:bg-wine-700 group-has-[:checked]:text-white" aria-hidden="true">
+                          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={iconeSvg[opt.icon]} />
+                        </span>
+                        <span class="flex flex-col">
+                          <span class="font-semibold text-ink-900 text-sm">{opt.label}</span>
+                          <span class="text-xs text-ink-500 leading-relaxed mt-1">{opt.desc}</span>
+                        </span>
+                        <span class="absolute top-3 right-3 w-5 h-5 rounded-full border-2 border-cream-300 transition-colors flex items-center justify-center group-has-[:checked]:border-wine-700 group-has-[:checked]:bg-wine-700">
+                          <svg class="w-3 h-3 text-white opacity-0 transition-opacity group-has-[:checked]:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+                <p class="form-error hidden mt-2 text-xs text-wine-700" data-for="tipoParceria"></p>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="f-email" class="label-base">E-mail <span class="text-wine-700">*</span></label>
+                  <input id="f-email" name="email" type="email" autocomplete="email" required class="input-base" placeholder="seu@email.com" />
+                  <p class="form-error hidden mt-1.5 text-xs text-wine-700" data-for="email"></p>
+                </div>
+                <div>
+                  <label for="f-whatsapp" class="label-base">WhatsApp / Telefone <span class="text-wine-700">*</span></label>
+                  <input id="f-whatsapp" name="whatsapp" type="tel" autocomplete="tel" required inputmode="numeric" class="input-base" placeholder="(00) 00000-0000" />
+                  <p class="form-error hidden mt-1.5 text-xs text-wine-700" data-for="whatsapp"></p>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="f-observacoes" class="label-base">Observações</label>
+                  <textarea id="f-observacoes" name="observacoes" rows="4" class="input-base resize-y" placeholder="Descreva brevemente sua demanda ou como pretende atuar como parceiro."></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="space-y-3">
+              <label class="flex items-start gap-3 cursor-pointer select-none">
+                <input
+                  id="f-lgpd"
+                  name="lgpd"
+                  type="checkbox"
+                  required
+                  class="mt-1 shrink-0 w-5 h-5 rounded border-cream-300 text-wine-700 focus:ring-wine-700 focus:ring-offset-0"
+                />
+                <span class="text-sm text-ink-700 leading-relaxed">
+                  Declaro que li e concordo com o tratamento dos meus dados para fins de contato e análise da parceria solicitada, conforme a
+                  <a href="/politica-de-privacidade" target="_blank" rel="noopener noreferrer" class="text-wine-700 underline hover:text-wine-800 font-medium">Política de Privacidade</a>.
+                  <span class="text-wine-700"> *</span>
+                </span>
+              </label>
+              <p class="form-error hidden text-xs text-wine-700" data-for="lgpd"></p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+              <button
+                id="form-submit"
+                type="submit"
+                class="btn-primary flex-1 justify-center min-h-[3.25rem]"
+              >
+                <span class="btn-label">Enviar dados</span>
+                <span class="btn-loading hidden items-center gap-2">
+                  <svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                  </svg>
+                  Enviando...
+                </span>
+              </button>
+              <button type="reset" class="btn-outline flex-none justify-center">Limpar</button>
+            </div>
+          </div>
+
+          <div id="form-success" class="hidden p-6 sm:p-10 text-center">
+            <div class="mx-auto w-16 h-16 rounded-full bg-green-50 text-[#1f9d55] border border-green-200 flex items-center justify-center mb-5" aria-hidden="true">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-display text-2xl md:text-3xl font-semibold text-ink-900">Recebemos seus dados!</h3>
+            <p class="mt-3 text-ink-500 max-w-md mx-auto leading-relaxed">
+              Em breve nossa equipe entrará em contato. Para agilizar, você pode continuar o atendimento diretamente pelo WhatsApp.
+            </p>
+            <div class="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
+              <a id="btn-whatsapp-success" href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer" class="btn-whatsapp justify-center min-h-[3.25rem]">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                </svg>
+                Continuar atendimento pelo WhatsApp
+              </a>
+              <button type="button" id="form-novo" class="btn-outline justify-center">Enviar nova solicitação</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ waNumero: site.whatsapp.numero }}>
+  const tiposLabel: Record<string, string> = {
+    compras: 'Compras',
+    guia: 'Guia comissionado',
+    divulgacao: 'Divulgação comissionada'
+  };
+
+  function maskCPF(v: string): string {
+    const n = v.replace(/\D/g, '').slice(0, 11);
+    return n
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  }
+  function maskRG(v: string): string {
+    const n = v.replace(/\D/g, '').slice(0, 9);
+    return n
+      .replace(/^(\d{2})(\d)/, '$1.$2')
+      .replace(/\.(\d{3})(\d)/, '.$1.$2')
+      .replace(/(\d{3})(\d{1})$/, '$1-$2');
+  }
+  function maskTel(v: string): string {
+    const n = v.replace(/\D/g, '').slice(0, 11);
+    if (n.length <= 10) {
+      return n.replace(/^(\d{2})(\d{4})(\d)/, '($1) $2-$3').replace(/(\d{4})(\d{4})$/, '$1-$2');
+    }
+    return n.replace(/^(\d{2})(\d{5})(\d)/, '($1) $2-$3');
+  }
+
+  function validarEmail(e: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());
+  }
+  function validarData(d: string): boolean {
+    if (!d) return true;
+    const dt = new Date(d);
+    if (Number.isNaN(dt.getTime())) return false;
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+    return dt <= hoje;
+  }
+  function validarTel(t: string): boolean {
+    return t.replace(/\D/g, '').length >= 10;
+  }
+
+  const form = document.getElementById('partnership-form') as HTMLFormElement | null;
+  if (form) {
+    const cpf = form.querySelector<HTMLInputElement>('#f-cpf');
+    const rg = form.querySelector<HTMLInputElement>('#f-rg');
+    const tel = form.querySelector<HTMLInputElement>('#f-whatsapp');
+    cpf?.addEventListener('input', () => { cpf.value = maskCPF(cpf.value); });
+    rg?.addEventListener('input', () => { rg.value = maskRG(rg.value); });
+    tel?.addEventListener('input', () => { tel.value = maskTel(tel.value); });
+
+    const params = new URLSearchParams(window.location.search);
+    const pre = params.get('parceria');
+    if (pre) {
+      const r = form.querySelector<HTMLInputElement>(`input[name="tipoParceria"][value="${pre}"]`);
+      if (r) r.checked = true;
+    }
+
+    const alertEl = form.querySelector<HTMLDivElement>('#form-alert')!;
+    function setAlert(tipo: 'error' | 'info' | 'ok', msg: string) {
+      alertEl.classList.remove('hidden', 'bg-wine-50', 'text-wine-800', 'border-wine-700/20', 'bg-green-50', 'text-green-800', 'border-green-200');
+      alertEl.classList.add('hidden');
+      if (!msg) return;
+      alertEl.textContent = msg;
+      alertEl.classList.remove('hidden');
+      if (tipo === 'error') alertEl.classList.add('bg-wine-50', 'text-wine-800', 'border', 'border-wine-700/20');
+      if (tipo === 'ok') alertEl.classList.add('bg-green-50', 'text-green-800', 'border', 'border-green-200');
+    }
+
+    function setError(campo: string, msg: string) {
+      const el = form.querySelector(`[name="${campo}"]`);
+      const err = form.querySelector<HTMLParagraphElement>(`.form-error[data-for="${campo}"]`);
+      if (el instanceof HTMLElement) {
+        if (msg) {
+          el.classList.add('border-wine-700/50', 'ring-2', 'ring-wine-700/10');
+        } else {
+          el.classList.remove('border-wine-700/50', 'ring-2', 'ring-wine-700/10');
+        }
+      }
+      if (err) {
+        if (msg) {
+          err.textContent = msg;
+          err.classList.remove('hidden');
+        } else {
+          err.textContent = '';
+          err.classList.add('hidden');
+        }
+      }
+    }
+
+    function validar(formEl: HTMLFormElement): boolean {
+      const data = new FormData(formEl);
+      let ok = true;
+      const errors: Record<string, string> = {};
+      const nome = String(data.get('nome') || '').trim();
+      const email = String(data.get('email') || '').trim();
+      const whatsapp = String(data.get('whatsapp') || '').trim();
+      const nasc = String(data.get('nascimento') || '').trim();
+      const tipo = String(data.get('tipoParceria') || '').trim();
+      const lgpd = data.get('lgpd');
+
+      if (nome.length < 3) errors.nome = 'Informe seu nome completo.';
+      if (!validarEmail(email)) errors.email = 'Informe um e-mail válido.';
+      if (!validarTel(whatsapp)) errors.whatsapp = 'Informe um telefone/WhatsApp válido.';
+      if (!validarData(nasc)) errors.nascimento = 'Informe uma data válida.';
+      if (!tipo) errors.tipoParceria = 'Selecione um tipo de parceria.';
+      if (!lgpd) errors.lgpd = 'É necessário aceitar a Política de Privacidade.';
+
+      Object.entries(errors).forEach(([k, v]) => { setError(k, v); ok = false; });
+      ['nome','email','whatsapp','nascimento','tipoParceria','lgpd'].forEach((k) => {
+        if (!errors[k]) setError(k, '');
+      });
+      if (!ok) {
+        setAlert('error', 'Confira os campos destacados antes de continuar.');
+      } else {
+        setAlert('info', '');
+      }
+      return ok;
+    }
+
+    const btnSubmit = form.querySelector<HTMLButtonElement>('#form-submit')!;
+    const btnLabel = btnSubmit.querySelector('.btn-label')!;
+    const btnLoading = btnSubmit.querySelector('.btn-loading')!;
+    const body = form.querySelector('#form-body')!;
+    const success = form.querySelector('#form-success')!;
+    const btnSuccessWhats = form.querySelector<HTMLAnchorElement>('#btn-whatsapp-success')!;
+    const btnNovo = form.querySelector<HTMLButtonElement>('#form-novo')!;
+
+    btnNovo.addEventListener('click', () => {
+      form.reset();
+      success.classList.add('hidden');
+      body.classList.remove('hidden');
+      window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+    });
+
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      if (!validar(form)) return;
+      const fd = new FormData(form);
+      const tipoValor = String(fd.get('tipoParceria') || '');
+
+      btnSubmit.disabled = true;
+      btnLabel.classList.add('hidden');
+      btnLoading.classList.remove('hidden');
+      btnLoading.classList.add('flex');
+      setAlert('info', '');
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          body: fd
+        });
+        if (!res.ok && res.status !== 404 && res.status !== 501) {
+          throw new Error(`Erro ${res.status}`);
+        }
+      } catch (err) {
+        // continua, exibimos sucesso e o WhatsApp como fallback
+      } finally {
+        btnSubmit.disabled = false;
+        btnLabel.classList.remove('hidden');
+        btnLoading.classList.add('hidden');
+        btnLoading.classList.remove('flex');
+      }
+
+      body.classList.add('hidden');
+      success.classList.remove('hidden');
+
+      const nome = String(fd.get('nome') || '').trim();
+      const empresa = String(fd.get('empresa') || '').trim();
+      const tipoTxt = tiposLabel[tipoValor] || 'Contato';
+      const linhas = [
+        'Olá! Preenchi o formulário de parceria no site da Adega Vista Alegre.',
+        '',
+        `Nome: ${nome}`,
+        empresa ? `Empresa: ${empresa}` : null,
+        `Parceria: ${tipoTxt}`,
+        '',
+        'Gostaria de continuar o atendimento.'
+      ].filter(Boolean).join('\n');
+      const numeroWa = String((document.documentElement as any).__avaWhatsApp || waNumero || '');
+      btnSuccessWhats.href = `https://wa.me/${numeroWa}?text=${encodeURIComponent(linhas)}`;
+
+      window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+    });
+
+    form.addEventListener('reset', () => {
+      setTimeout(() => {
+        ['nome','email','whatsapp','nascimento','tipoParceria','lgpd','cpf','rg'].forEach((k) => setError(k, ''));
+        setAlert('info', '');
+      }, 10);
+    });
+  }
+
+  document.documentElement.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement | null;
+    const a = t?.closest?.('[data-partnership]') as HTMLAnchorElement | null;
+    if (!a) return;
+    const v = a.getAttribute('data-partnership');
+    if (!v) return;
+    const id = a.getAttribute('href')?.replace('#', '');
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    const top = el.getBoundingClientRect().top + window.scrollY - 110;
+    window.scrollTo({ top, behavior: 'smooth' });
+    window.setTimeout(() => {
+      const r = document.querySelector<HTMLInputElement>(`#partnership-form input[name="tipoParceria"][value="${v}"]`);
+      if (r) { r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true })); }
+      const nome = document.querySelector<HTMLInputElement>('#f-nome');
+      nome?.focus({ preventScroll: true });
+    }, 600);
+  });
+</script>
