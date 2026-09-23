@@ -1,10 +1,19 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
+  "nodeVersion": "20.x",
   "buildCommand": "astro build",
   "installCommand": "npm install",
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/**/*.{ts,js}": {
+      "runtime": "nodejs20"
+    },
+    "_render": {
+      "runtime": "nodejs20"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
