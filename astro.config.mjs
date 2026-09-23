@@ -9,7 +9,7 @@ import vercel from '@astrojs/vercel/serverless';
 export default defineConfig({
   integrations: [tailwind()],
   site: 'https://adegavistaalegre.com.br',
-  output: 'server',
+  output: 'hybrid',
   adapter: vercel(),
   server: {
     port: 4321,
