@@ -55,7 +55,7 @@ export const site: SiteConfig = {
   representante: {
     nome: 'Nathalia',
     nomePlaceholder: 'Representante comercial',
-    foto: '/img/Foto Nathalia.jpeg',
+    foto: '/img/foto-nathalia.jpeg',
     apresentacao:
       'Atendimento personalizado para clientes, empresas, profissionais do turismo e parceiros interessados nos produtos da Adega Vista Alegre.',
     regiao: 'Atendimento em todo o Brasil',
