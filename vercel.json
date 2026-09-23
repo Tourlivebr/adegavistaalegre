@@ -3,14 +3,8 @@
   "framework": "astro",
   "buildCommand": "astro build",
   "installCommand": "npm install",
-  "outputDirectory": ".vercel/output",
   "cleanUrls": true,
   "trailingSlash": false,
-  "functions": {
-    "api/**/*.ts": {
-      "includeFiles": "src/pages/api/**"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
