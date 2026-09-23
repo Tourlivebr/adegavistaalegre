@@ -77,8 +77,6 @@ const iconeSvg = {
       <div class="lg:col-span-7">
         <form
           id="partnership-form"
-          method="post"
-          action="/api/contact"
           novalidate
           class="card-elegant p-0 overflow-hidden"
         >
@@ -408,13 +406,11 @@ const iconeSvg = {
       setAlert('info', '');
 
       try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          body: fd
-        });
-        if (!res.ok && res.status !== 404 && res.status !== 501) {
-          throw new Error(`Erro ${res.status}`);
-        }
+        // Formulário validado. Prosseguimos diretamente para o CTA no WhatsApp
+        // (site 100% estático, sem endpoints SSR — evita runtime warnings na Vercel).
+        // Dados sensíveis (CPF, RG, nascimento) NÃO são incluídos no link — permanecem apenas
+        // no navegador do usuário, conforme diretrizes LGPD.
+        void 0;
       } catch (err) {
         // continua, exibimos sucesso e o WhatsApp como fallback
       } finally {
