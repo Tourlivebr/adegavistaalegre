@@ -11,7 +11,7 @@
     "postinstall": "node scripts/patch-vercel-runtime.mjs"
   },
   "engines": {
-    "node": "18.x || 20.x"
+    "node": "22.x || 24.x"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.2",

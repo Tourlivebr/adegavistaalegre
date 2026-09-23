@@ -18,16 +18,22 @@ try {
   process.exit(0);
 }
 
+const RUNTIME = '@vercel/node@5';
+const OLD_PATTERNS = [
+  /return 'nodejs\d+(?:\.\w*)?';/g,
+  /return `nodejs\$\{major\}(?:\.\w*)?`;/g,
+];
+
 let modified = false;
-const patched = src.replace(/return 'nodejs(\d+)\.x';/g, (_, v) => {
-  modified = true;
-  return `return 'nodejs${v}';`;
-}).replace(/return `nodejs\$\{major\}\.x`;/g, () => {
-  modified = true;
-  return 'return `nodejs${major}`;';
-});
+let out = src;
+for (const re of OLD_PATTERNS) {
+  out = out.replace(re, () => {
+    modified = true;
+    return `return '${RUNTIME}';`;
+  });
+}
 
 if (modified) {
-  writeFileSync(ADAPTER_PATH, patched, 'utf8');
-  console.log('[postinstall] Patched @astrojs/vercel runtime format (removed trailing .x)');
+  writeFileSync(ADAPTER_PATH, out, 'utf8');
+  console.log(`[postinstall] Patched @astrojs/vercel runtime -> ${RUNTIME}`);
 }

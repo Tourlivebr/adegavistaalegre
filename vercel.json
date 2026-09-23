@@ -5,6 +5,14 @@
   "installCommand": "npm install",
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/**/*.{ts,js}": {
+      "runtime": "@vercel/node@5"
+    },
+    "**/_render.func": {
+      "runtime": "@vercel/node@5"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
