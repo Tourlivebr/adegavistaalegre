@@ -14,6 +14,13 @@
   body {
     @apply bg-white text-ink-900 font-sans antialiased;
     font-feature-settings: 'cv11', 'ss01';
+    background-color: #FDFBF9;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'><g fill='%236D1830' fill-opacity='0.035' stroke='%236D1830' stroke-opacity='0.045' stroke-width='1.2'><path d='M140 80c-30-10-62 10-70 42-10 38 22 62 52 58 12-2 22-10 32-18 6 42 42 70 82 60 30-8 50-40 42-70-6-20-22-36-44-40 12-8 18-22 14-38-6-22-28-34-48-28-12 2-20 10-24 20-18-16-38-22-60-14-24 10-40 34-38 60 2 14 12 28 26 32-10 14-8 32 4 44 20 20 48 26 72 14 18-8 34-28 34-50z'/><circle cx='150' cy='140' r='7'/><circle cx='166' cy='156' r='6.5'/><circle cx='146' cy='174' r='6'/><circle cx='182' cy='136' r='5.5'/><circle cx='196' cy='154' r='5.5'/><path d='M90 202c-40 0-60 20-60 52s24 50 60 50 64-20 64-52-24-50-64-50zm0 80c-18 0-30-12-30-28s12-28 30-28 32 12 32 28-14 28-32 28z'/><circle cx='72' cy='254' r='5'/><circle cx='88' cy='266' r='5'/><circle cx='106' cy='252' r='5.5'/><circle cx='96' cy='240' r='5'/><path d='M108 214c0-16 14-34 32-34 18 0 32 16 32 32 0 20-14 34-32 34-18 0-32-14-32-32z' fill-opacity='0.05'/><path d='M80 152c0-12 10-22 22-22s22 10 22 22-10 22-22 22-22-10-22-22z' fill-opacity='0.055'/><path d='M224 180c-2-30-30-54-60-52-28 2-50 24-52 54-2 30 22 52 54 54l-8 10c-4 4-6 10-4 16 4 10 18 14 28 10 14-6 16-20 12-32 6-2 10-6 14-12 22 4 46-12 50-34 4-18-6-38-22-48z'/><path d='M440 420c-30-10-62 10-70 42-10 38 22 62 52 58 12-2 22-10 32-18 6 42 42 70 82 60 30-8 50-40 42-70-6-20-22-36-44-40 12-8 18-22 14-38-6-22-28-34-48-28-12 2-20 10-24 20-18-16-38-22-60-14-24 10-40 34-38 60 2 14 12 28 26 32-10 14-8 32 4 44 20 20 48 26 72 14 18-8 34-28 34-50z' fill-opacity='0.025'/><circle cx='450' cy='480' r='7' fill-opacity='0.03'/><circle cx='466' cy='496' r='6.5' fill-opacity='0.03'/><circle cx='446' cy='514' r='6' fill-opacity='0.03'/></g></svg>");
+    background-repeat: repeat;
+    background-size: 640px 640px;
+    background-position: top left;
+    background-attachment: scroll;
   }
 
   ::selection {
