@@ -2,9 +2,11 @@
 dist/
 .output/
 .astro/
+.vercel/
 build-output.log
 build-log.txt
 build-log2.txt
+*.log
 
 # dependencies
 node_modules/

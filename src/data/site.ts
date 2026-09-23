@@ -40,8 +40,8 @@ export const site: SiteConfig = {
     'Conheça a Adega Vista Alegre, seus produtos e oportunidades de parceria para empresas, guias de turismo e divulgadores.',
   url: import.meta.env.PUBLIC_SITE_URL || 'https://adegavistaalegre.com.br',
   whatsapp: {
-    numero: import.meta.env.PUBLIC_WHATSAPP_NUMBER || '5511999999999',
-    numeroFormatado: '(11) 99999-9999',
+    numero: import.meta.env.PUBLIC_WHATSAPP_NUMBER || '555554992022449',
+    numeroFormatado: '(54) 99202-2449',
     mensagemPadrao:
       'Olá! Acessei o site da Adega Vista Alegre e gostaria de mais informações.'
   },

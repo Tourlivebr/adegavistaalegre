@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://adegavistaalegre.com.br/sitemap-index.xml
