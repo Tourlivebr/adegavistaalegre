@@ -65,8 +65,8 @@ export const site: SiteConfig = {
     email: ''
   },
   endereco: {
-    logradouroPlaceholder: '[Informe o endereço]',
-    cidadePlaceholder: '[Cidade - UF]'
+    logradouroPlaceholder: 'Av. das Hortênsias, 5485 – Bairro Carniel',
+    cidadePlaceholder: 'Gramado - RS'
   },
   emailContatoFormulario:
     import.meta.env.CONTACT_EMAIL || 'contato@adegavistaalegre.com.br'
