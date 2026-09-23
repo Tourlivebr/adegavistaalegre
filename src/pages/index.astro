@@ -1,8 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/Hero.astro';
+import StatsStrip from '@components/StatsStrip.astro';
+import PartnershipIntro from '@components/PartnershipIntro.astro';
 import About from '@components/About.astro';
-import Representative from '@components/Representative.astro';
 import Products from '@components/Products.astro';
 import PartnershipGuides from '@components/PartnershipGuides.astro';
 import PartnershipAffiliates from '@components/PartnershipAffiliates.astro';
@@ -20,8 +21,9 @@ export const prerender = true;
 
 <Layout>
   <Hero />
+  <StatsStrip />
+  <PartnershipIntro />
   <About />
-  <Representative />
   <Products />
   <PartnershipGuides />
   <PartnershipAffiliates />

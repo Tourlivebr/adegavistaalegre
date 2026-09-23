@@ -1,0 +1,55 @@
+---
+const itens = [
+  {
+    titulo: 'Produtos de Qualidade',
+    icone: 'wine',
+    descricao: 'Curadoria selecionada de vinhos, bebidas, laticínios, embutidos e cosméticos.'
+  },
+  {
+    titulo: 'Atendimento Personalizado',
+    icone: 'team',
+    descricao: 'Representante comercial dedicada para o seu negócio ou parceria.'
+  },
+  {
+    titulo: 'Parcerias em Todo o Brasil',
+    icone: 'handshake',
+    descricao: 'Conexões que geram negócios reais com condições justas e duradouras.'
+  }
+];
+
+const iconeSvg = {
+  wine: `<path d="M8 2h8l-1 6a4 4 0 01-6 0L8 2z"/><path d="M12 12v10"/><path d="M8 22h8"/>`,
+  team: `<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>`,
+  handshake: `<path d="M11 17l2 2a1 1 0 001.4 0l2.6-2.6a5 5 0 00-2.4-8.4 5 5 0 00-5.6 2.4L8 11"/><path d="M2.9 13.1l5.1-5.1a5 5 0 017 7l-5.1 5.1a2 2 0 01-2.8 0l-1.2-1.2a2 2 0 010-2.8z"/>`
+};
+---
+
+<section id="diferenciais" class="relative py-10 md:py-12 bg-cream-50/50 border-y border-cream-200/60 overflow-hidden">
+  <div class="container relative">
+    <div class="grid grid-cols-3 gap-4 sm:gap-6 md:gap-10">
+      {itens.map((item, i) => (
+        <div
+          key={item.titulo}
+          class={`relative flex flex-col items-center text-center gap-3 sm:gap-4 py-2 ${
+            i < itens.length - 1
+              ? 'after:content-[""] after:absolute after:top-2 after:right-0 after:h-[calc(100%-1rem)] after:w-px after:bg-cream-300/70 sm:after:h-[calc(100%-2rem)]'
+              : ''
+          }`}
+        >
+          <div
+            class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center text-wine-700"
+            aria-hidden="true"
+          >
+            <svg class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={iconeSvg[item.icone]} />
+          </div>
+          <h3 class="font-display text-sm sm:text-base md:text-xl font-semibold text-ink-900 leading-tight max-w-[14ch] sm:max-w-none">
+            {item.titulo}
+          </h3>
+          <p class="hidden sm:block text-xs md:text-sm text-ink-500 leading-relaxed max-w-xs">
+            {item.descricao}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

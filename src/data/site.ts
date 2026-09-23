@@ -53,13 +53,13 @@ export const site: SiteConfig = {
     instagramLabel: '@adegavistaalegre'
   },
   representante: {
-    nome: '[Nome da Representante]',
-    nomePlaceholder: 'Informe o nome da representante comercial',
-    foto: '',
+    nome: 'Nathalia',
+    nomePlaceholder: 'Representante comercial',
+    foto: '/img/Foto Nathalia.jpeg',
     apresentacao:
       'Atendimento personalizado para clientes, empresas, profissionais do turismo e parceiros interessados nos produtos da Adega Vista Alegre.',
-    regiao: '[Região de atendimento]',
-    regiaoPlaceholder: 'Informe a região de atendimento',
+    regiao: 'Atendimento em todo o Brasil',
+    regiaoPlaceholder: '',
     whatsapp: '',
     instagram: '',
     email: ''
