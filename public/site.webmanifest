@@ -1,0 +1,22 @@
+{
+  "name": "Adega Vista Alegre",
+  "short_name": "Adega VA",
+  "description": "Adega Vista Alegre em Gramado, RS: vinhos selecionados, bebidas, laticínios, embutidos e cosméticos.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF9",
+  "theme_color": "#6D1830",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "food", "business"],
+  "prefer_related_applications": false
+}

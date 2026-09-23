@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /404
 
-Sitemap: https://adegavistaalegre.com.br/sitemap-index.xml
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+Sitemap: https://adegavistaalegre.com.br/sitemap.xml

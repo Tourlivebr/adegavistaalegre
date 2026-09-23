@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDFBF9"/>
+      <stop offset="55%" stop-color="#F6EFE6"/>
+      <stop offset="100%" stop-color="#EADFCD"/>
+    </linearGradient>
+    <linearGradient id="stripe" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C9A24B" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#C9A24B" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#C9A24B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="vinograd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6D1830"/>
+      <stop offset="100%" stop-color="#3E0D1A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g opacity="0.06" fill="#6D1830">
+    <circle cx="150" cy="520" r="120"/>
+    <circle cx="1100" cy="110" r="160"/>
+    <circle cx="1020" cy="560" r="90"/>
+    <circle cx="80" cy="100" r="70"/>
+  </g>
+
+  <g transform="translate(80,80)">
+    <rect width="1040" height="470" x="0" y="0" rx="26" ry="26" fill="none" stroke="#C9A24B" stroke-width="2" opacity="0.7"/>
+    <rect width="1040" height="470" x="18" y="18" rx="20" ry="20" fill="none" stroke="#6D1830" stroke-width="1" opacity="0.35"/>
+  </g>
+
+  <g transform="translate(600,315)" text-anchor="middle" font-family="'Playfair Display', Georgia, serif">
+    <text x="0" y="-130" font-size="28" fill="#8A6A2B" letter-spacing="18" opacity="0.9">ADEGA VISTA ALEGRE</text>
+    <rect x="-520" y="-108" width="1040" height="2" fill="url(#stripe)"/>
+    <text x="0" y="-30" font-size="92" font-weight="700" fill="#3E0D1A" letter-spacing="2">Vinhos e Sabores</text>
+    <text x="0" y="46" font-size="92" font-weight="700" fill="#3E0D1A" letter-spacing="2">de Gramado</text>
+    <rect x="-520" y="96" width="1040" height="2" fill="url(#stripe)"/>
+    <text x="0" y="150" font-size="32" fill="#5A3D15" font-style="italic" font-family="Georgia, serif" opacity="0.95">Qualidade, sabor e boas parcerias em um só lugar.</text>
+    <g transform="translate(-320,198)">
+      <path d="M12,0 C9,-8 0,-12 0,-4 C0,4 12,20 12,20 C12,20 24,4 24,-4 C24,-12 15,-8 12,0 Z" fill="#6D1830"/>
+      <path d="M12,24 C6,18 0,12 0,18 C0,24 12,38 12,38 C12,38 24,24 24,18 C24,12 18,18 12,24 Z" fill="#8C2341"/>
+      <path d="M12,44 C6,38 0,32 0,38 C0,44 12,58 12,58 C12,58 24,44 24,38 C24,32 18,38 12,44 Z" fill="#6D1830"/>
+      <path d="M12,62 C6,56 0,50 0,56 C0,62 12,76 12,76 C12,76 24,62 24,56 C24,50 18,56 12,62 Z" fill="#8C2341"/>
+      <path d="M-2,12 C-2,2 8,-8 12,-22 C12,-22 12,-22 14,-20 C16,-6 28,-4 28,12 C28,20 22,28 12,30 C2,28 -2,20 -2,12 Z" fill="url(#vinograd)" opacity="0.85"/>
+    </g>
+    <g transform="translate(296,198)">
+      <path d="M12,0 C9,-8 0,-12 0,-4 C0,4 12,20 12,20 C12,20 24,4 24,-4 C24,-12 15,-8 12,0 Z" fill="#6D1830"/>
+      <path d="M12,24 C6,18 0,12 0,18 C0,24 12,38 12,38 C12,38 24,24 24,18 C24,12 18,18 12,24 Z" fill="#8C2341"/>
+      <path d="M12,44 C6,38 0,32 0,38 C0,44 12,58 12,58 C12,58 24,44 24,38 C24,32 18,38 12,44 Z" fill="#6D1830"/>
+      <path d="M12,62 C6,56 0,50 0,56 C0,62 12,76 12,76 C12,76 24,62 24,56 C24,50 18,56 12,62 Z" fill="#8C2341"/>
+      <path d="M-2,12 C-2,2 8,-8 12,-22 C12,-22 12,-22 14,-20 C16,-6 28,-4 28,12 C28,20 22,28 12,30 C2,28 -2,20 -2,12 Z" fill="url(#vinograd)" opacity="0.85"/>
+    </g>
+  </g>
+
+  <g font-family="Georgia, serif" opacity="0.8">
+    <text x="80" y="596" font-size="18" fill="#5A3D15" letter-spacing="3">GRAMADO · RIO GRANDE DO SUL · BRASIL</text>
+    <text x="1120" y="596" font-size="18" fill="#5A3D15" text-anchor="end" letter-spacing="3">adegavistaalegre.com.br</text>
+  </g>
+</svg>
